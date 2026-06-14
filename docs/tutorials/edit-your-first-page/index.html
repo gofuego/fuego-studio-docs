@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>Edit your first page — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/" class="current">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Edit your first page</h1>
+    <p>This picks up from <a href="../host-your-first-site/">hosting your first site</a>. You'll edit
+a page's source and see it go live.</p>
+<p>You need <strong>write access</strong> to the repo, and the site must be a <strong>Fuego</strong> site (studio
+reads its <code>site-manifest.json</code> to find each page's source).</p>
+<h2>1. Find the edit button</h2>
+<p>Open any content page on your hosted site. If you have write access, an <strong>Edit
+source</strong> button appears. (No button? You may lack write access, or editing may be
+turned off — see <a href="../../how-to/control-editing/">Control editing</a>.)</p>
+<h2>2. Edit the source</h2>
+<p>The button opens a <strong>raw source editor</strong> — the page's Markdown (or whatever DSL the
+site uses), exactly as it is in the repo. There's no live preview, by design:
+editing is about <em>what the page says</em>. Make your change.</p>
+<h2>3. Commit</h2>
+<p>Click <strong>Commit</strong>. Studio writes the file back to GitHub:</p>
+<ul>
+<li>The commit is <strong>authored by you</strong> (co-authored by <code>fuego-studio[bot]</code>).</li>
+<li>It's conditional on the version you loaded — if someone else changed the file
+first, you get a conflict instead of a silent overwrite.</li>
+</ul>
+<h2>4. Watch it publish</h2>
+<p>If your edit branch deploys (the common case), your normal CI rebuilds the site and
+studio re-syncs. A toast walks you through <em>Committing → deploying → Published</em>, and
+the page <strong>reloads itself</strong> with your change — scroll preserved.</p>
+<p>If the site lives in a protected repo, your commit becomes a <strong>pull request</strong> instead
+— see <a href="../../how-to/edit-in-a-protected-repo/">Edit in a protected repo</a>.</p>
+<p>That's the whole loop. To understand what just happened, read
+<a href="../../explanation/publish-and-reload/">The publish &amp; reload loop</a>.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

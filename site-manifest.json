@@ -1,0 +1,685 @@
+{
+  "content_root": "content",
+  "pages": [
+    {
+      "url": "/docs/explanation/gateway-first/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/explanation/gateway-first.md",
+      "output_path": "docs/explanation/gateway-first/index.html",
+      "title": "Why gateway-first",
+      "summary": "Studio hosts a site it never builds. Being the origin for the served bytes is what makes auth, editing, and reload simple instead of hard.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Explanation",
+        "nav_weight": 1,
+        "summary": "Studio hosts a site it never builds. Being the origin for the served bytes is what makes auth, editing, and reload simple instead of hard.",
+        "tags": [
+          "explanation",
+          "architecture"
+        ],
+        "title": "Why gateway-first"
+      }
+    },
+    {
+      "url": "/docs/explanation/permission-gating/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/explanation/permission-gating.md",
+      "output_path": "docs/explanation/permission-gating/index.html",
+      "title": "How permission gating works",
+      "summary": "Studio doesn't invent access rules — it mirrors GitHub's. Your repo permission decides what you can see, host, and edit.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Explanation",
+        "nav_weight": 2,
+        "summary": "Studio doesn't invent access rules — it mirrors GitHub's. Your repo permission decides what you can see, host, and edit.",
+        "tags": [
+          "explanation",
+          "auth",
+          "security"
+        ],
+        "title": "How permission gating works"
+      }
+    },
+    {
+      "url": "/docs/explanation/publish-and-reload/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/explanation/publish-and-reload.md",
+      "output_path": "docs/explanation/publish-and-reload/index.html",
+      "title": "The publish \u0026 reload loop",
+      "summary": "What actually happens between clicking Commit and the page updating itself — and why there's no live preview.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Explanation",
+        "nav_weight": 3,
+        "summary": "What actually happens between clicking Commit and the page updating itself — and why there's no live preview.",
+        "tags": [
+          "explanation",
+          "editing",
+          "reload"
+        ],
+        "title": "The publish \u0026 reload loop"
+      }
+    },
+    {
+      "url": "/docs/how-to/configure-the-deploy-workflow/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/how-to/configure-the-deploy-workflow.md",
+      "output_path": "docs/how-to/configure-the-deploy-workflow/index.html",
+      "title": "Configure the deploy workflow",
+      "summary": "A complete GitHub Actions workflow that builds your site at the studio mount path and publishes it to the serve branch.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "How-to Guides",
+        "nav_weight": 2,
+        "summary": "A complete GitHub Actions workflow that builds your site at the studio mount path and publishes it to the serve branch.",
+        "tags": [
+          "how-to",
+          "deployment",
+          "ci"
+        ],
+        "title": "Configure the deploy workflow"
+      }
+    },
+    {
+      "url": "/docs/how-to/control-editing/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/how-to/control-editing.md",
+      "output_path": "docs/how-to/control-editing/index.html",
+      "title": "Control who can edit",
+      "summary": "Turn editing off entirely, or override the per-repo policy with a .fuego-studio.yaml. Most repos need neither.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "How-to Guides",
+        "nav_weight": 4,
+        "summary": "Turn editing off entirely, or override the per-repo policy with a .fuego-studio.yaml. Most repos need neither.",
+        "tags": [
+          "how-to",
+          "editing",
+          "policy"
+        ],
+        "title": "Control who can edit"
+      }
+    },
+    {
+      "url": "/docs/how-to/edit-in-a-protected-repo/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/how-to/edit-in-a-protected-repo.md",
+      "output_path": "docs/how-to/edit-in-a-protected-repo/index.html",
+      "title": "Edit a site in a protected repo",
+      "summary": "When the default branch is protected, edits become pull requests instead of direct commits. Here's the flow you'll see.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "How-to Guides",
+        "nav_weight": 5,
+        "summary": "When the default branch is protected, edits become pull requests instead of direct commits. Here's the flow you'll see.",
+        "tags": [
+          "how-to",
+          "editing",
+          "git"
+        ],
+        "title": "Edit a site in a protected repo"
+      }
+    },
+    {
+      "url": "/docs/how-to/install-the-app/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/how-to/install-the-app.md",
+      "output_path": "docs/how-to/install-the-app/index.html",
+      "title": "Install the GitHub App",
+      "summary": "Install fuego-studio on the repos you want hosted, and check the install with the debug endpoints.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "How-to Guides",
+        "nav_weight": 1,
+        "summary": "Install fuego-studio on the repos you want hosted, and check the install with the debug endpoints.",
+        "tags": [
+          "how-to",
+          "github",
+          "setup"
+        ],
+        "title": "Install the GitHub App"
+      }
+    },
+    {
+      "url": "/docs/how-to/set-up-dual-hosting/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/how-to/set-up-dual-hosting.md",
+      "output_path": "docs/how-to/set-up-dual-hosting/index.html",
+      "title": "Serve on Pages and Studio at once",
+      "summary": "Public GitHub Pages and studio use different base URLs. Build twice, publish to two branches, and each host serves the right one.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "How-to Guides",
+        "nav_weight": 3,
+        "summary": "Public GitHub Pages and studio use different base URLs. Build twice, publish to two branches, and each host serves the right one.",
+        "tags": [
+          "how-to",
+          "deployment",
+          "hosting"
+        ],
+        "title": "Serve on Pages and Studio at once"
+      }
+    },
+    {
+      "url": "/docs/reference/configuration/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/reference/configuration.md",
+      "output_path": "docs/reference/configuration/index.html",
+      "title": "Server configuration",
+      "summary": "The environment variables a fuego-studio instance reads, and where each value comes from.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Reference",
+        "nav_weight": 2,
+        "summary": "The environment variables a fuego-studio instance reads, and where each value comes from.",
+        "tags": [
+          "reference",
+          "configuration",
+          "ops"
+        ],
+        "title": "Server configuration"
+      }
+    },
+    {
+      "url": "/docs/reference/fuego-studio-yaml/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/reference/fuego-studio-yaml.md",
+      "output_path": "docs/reference/fuego-studio-yaml/index.html",
+      "title": ".fuego-studio.yaml",
+      "summary": "The optional per-repo editing-policy file: its three keys, their defaults, and how they resolve.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Reference",
+        "nav_weight": 3,
+        "summary": "The optional per-repo editing-policy file: its three keys, their defaults, and how they resolve.",
+        "tags": [
+          "reference",
+          "editing",
+          "policy"
+        ],
+        "title": ".fuego-studio.yaml"
+      }
+    },
+    {
+      "url": "/docs/reference/routes/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/reference/routes.md",
+      "output_path": "docs/reference/routes/index.html",
+      "title": "Routes",
+      "summary": "Every HTTP route fuego-studio exposes and what it does.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Reference",
+        "nav_weight": 1,
+        "summary": "Every HTTP route fuego-studio exposes and what it does.",
+        "tags": [
+          "reference",
+          "routes"
+        ],
+        "title": "Routes"
+      }
+    },
+    {
+      "url": "/docs/tutorials/edit-your-first-page/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/tutorials/edit-your-first-page.md",
+      "output_path": "docs/tutorials/edit-your-first-page/index.html",
+      "title": "Edit your first page",
+      "summary": "Open a Fuego page you have write access to, edit its source, commit, and watch it republish and reload itself.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Tutorials",
+        "nav_weight": 2,
+        "order": 2,
+        "summary": "Open a Fuego page you have write access to, edit its source, commit, and watch it republish and reload itself.",
+        "tags": [
+          "tutorial",
+          "editing"
+        ],
+        "title": "Edit your first page"
+      }
+    },
+    {
+      "url": "/docs/tutorials/host-your-first-site/",
+      "type": "md",
+      "layout": "doc",
+      "source_path": "docs/tutorials/host-your-first-site.md",
+      "output_path": "docs/tutorials/host-your-first-site/index.html",
+      "title": "Host your first site",
+      "summary": "Install the app on a repo, point its build at the studio mount path, and watch the gated site come up.",
+      "envelope": {
+        "layout": "doc",
+        "nav_section": "Tutorials",
+        "nav_weight": 1,
+        "order": 1,
+        "summary": "Install the app on a repo, point its build at the studio mount path, and watch the gated site come up.",
+        "tags": [
+          "tutorial",
+          "hosting",
+          "getting-started"
+        ],
+        "title": "Host your first site"
+      }
+    },
+    {
+      "url": "/index/",
+      "type": "md",
+      "layout": "home",
+      "source_path": "index.md",
+      "output_path": "index/index.html",
+      "title": "Host private sites. Edit docs in place.",
+      "envelope": {
+        "cta": [
+          {
+            "label": "Host your first site",
+            "url": "/docs/tutorials/host-your-first-site/"
+          },
+          {
+            "ghost": true,
+            "label": "How editing works",
+            "url": "/docs/explanation/publish-and-reload/"
+          }
+        ],
+        "layout": "home",
+        "title": "Host private sites. Edit docs in place."
+      }
+    },
+    {
+      "url": "/tags/",
+      "type": "taxonomy-index",
+      "layout": "tag-index",
+      "source_path": "_virtual/taxonomy/tags/_index",
+      "output_path": "tags/index.html",
+      "title": "All Tags",
+      "envelope": {
+        "taxonomy": "tags",
+        "title": "All Tags"
+      }
+    },
+    {
+      "url": "/tags/architecture/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/architecture",
+      "output_path": "tags/architecture/index.html",
+      "title": "Tags: architecture",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "architecture",
+        "title": "Tags: architecture"
+      }
+    },
+    {
+      "url": "/tags/auth/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/auth",
+      "output_path": "tags/auth/index.html",
+      "title": "Tags: auth",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "auth",
+        "title": "Tags: auth"
+      }
+    },
+    {
+      "url": "/tags/ci/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/ci",
+      "output_path": "tags/ci/index.html",
+      "title": "Tags: ci",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "ci",
+        "title": "Tags: ci"
+      }
+    },
+    {
+      "url": "/tags/configuration/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/configuration",
+      "output_path": "tags/configuration/index.html",
+      "title": "Tags: configuration",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "configuration",
+        "title": "Tags: configuration"
+      }
+    },
+    {
+      "url": "/tags/deployment/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/deployment",
+      "output_path": "tags/deployment/index.html",
+      "title": "Tags: deployment",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "deployment",
+        "title": "Tags: deployment"
+      }
+    },
+    {
+      "url": "/tags/editing/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/editing",
+      "output_path": "tags/editing/index.html",
+      "title": "Tags: editing",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "editing",
+        "title": "Tags: editing"
+      }
+    },
+    {
+      "url": "/tags/explanation/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/explanation",
+      "output_path": "tags/explanation/index.html",
+      "title": "Tags: explanation",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "explanation",
+        "title": "Tags: explanation"
+      }
+    },
+    {
+      "url": "/tags/getting-started/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/getting-started",
+      "output_path": "tags/getting-started/index.html",
+      "title": "Tags: getting-started",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "getting-started",
+        "title": "Tags: getting-started"
+      }
+    },
+    {
+      "url": "/tags/git/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/git",
+      "output_path": "tags/git/index.html",
+      "title": "Tags: git",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "git",
+        "title": "Tags: git"
+      }
+    },
+    {
+      "url": "/tags/github/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/github",
+      "output_path": "tags/github/index.html",
+      "title": "Tags: github",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "github",
+        "title": "Tags: github"
+      }
+    },
+    {
+      "url": "/tags/hosting/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/hosting",
+      "output_path": "tags/hosting/index.html",
+      "title": "Tags: hosting",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "hosting",
+        "title": "Tags: hosting"
+      }
+    },
+    {
+      "url": "/tags/how-to/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/how-to",
+      "output_path": "tags/how-to/index.html",
+      "title": "Tags: how-to",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "how-to",
+        "title": "Tags: how-to"
+      }
+    },
+    {
+      "url": "/tags/ops/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/ops",
+      "output_path": "tags/ops/index.html",
+      "title": "Tags: ops",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "ops",
+        "title": "Tags: ops"
+      }
+    },
+    {
+      "url": "/tags/policy/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/policy",
+      "output_path": "tags/policy/index.html",
+      "title": "Tags: policy",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "policy",
+        "title": "Tags: policy"
+      }
+    },
+    {
+      "url": "/tags/reference/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/reference",
+      "output_path": "tags/reference/index.html",
+      "title": "Tags: reference",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "reference",
+        "title": "Tags: reference"
+      }
+    },
+    {
+      "url": "/tags/reload/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/reload",
+      "output_path": "tags/reload/index.html",
+      "title": "Tags: reload",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "reload",
+        "title": "Tags: reload"
+      }
+    },
+    {
+      "url": "/tags/routes/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/routes",
+      "output_path": "tags/routes/index.html",
+      "title": "Tags: routes",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "routes",
+        "title": "Tags: routes"
+      }
+    },
+    {
+      "url": "/tags/security/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/security",
+      "output_path": "tags/security/index.html",
+      "title": "Tags: security",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "security",
+        "title": "Tags: security"
+      }
+    },
+    {
+      "url": "/tags/setup/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/setup",
+      "output_path": "tags/setup/index.html",
+      "title": "Tags: setup",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "setup",
+        "title": "Tags: setup"
+      }
+    },
+    {
+      "url": "/tags/tutorial/",
+      "type": "taxonomy-term",
+      "layout": "tag",
+      "source_path": "_virtual/taxonomy/tags/tutorial",
+      "output_path": "tags/tutorial/index.html",
+      "title": "Tags: tutorial",
+      "envelope": {
+        "taxonomy": "tags",
+        "term": "tutorial",
+        "title": "Tags: tutorial"
+      }
+    },
+    {
+      "url": "/tutorials/",
+      "type": "collection",
+      "layout": "listing",
+      "source_path": "_virtual/collection/tutorials",
+      "output_path": "tutorials/index.html",
+      "title": "Tutorials",
+      "envelope": {
+        "collection": "tutorials",
+        "title": "Tutorials"
+      }
+    },
+    {
+      "url": "/tutorials/page/2/",
+      "type": "collection",
+      "layout": "listing",
+      "source_path": "_virtual/collection/tutorials/page-2",
+      "output_path": "tutorials/page/2/index.html",
+      "title": "Tutorials",
+      "envelope": {
+        "collection": "tutorials",
+        "title": "Tutorials"
+      }
+    }
+  ],
+  "taxonomies": {
+    "tags": {
+      "terms": {
+        "architecture": [
+          0
+        ],
+        "auth": [
+          1
+        ],
+        "ci": [
+          3
+        ],
+        "configuration": [
+          8
+        ],
+        "deployment": [
+          3,
+          7
+        ],
+        "editing": [
+          2,
+          4,
+          5,
+          9,
+          11
+        ],
+        "explanation": [
+          0,
+          1,
+          2
+        ],
+        "getting-started": [
+          12
+        ],
+        "git": [
+          5
+        ],
+        "github": [
+          6
+        ],
+        "hosting": [
+          7,
+          12
+        ],
+        "how-to": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ops": [
+          8
+        ],
+        "policy": [
+          4,
+          9
+        ],
+        "reference": [
+          8,
+          9,
+          10
+        ],
+        "reload": [
+          2
+        ],
+        "routes": [
+          10
+        ],
+        "security": [
+          1
+        ],
+        "setup": [
+          6
+        ],
+        "tutorial": [
+          11,
+          12
+        ]
+      }
+    }
+  },
+  "collections": {
+    "tutorials": {
+      "pages": [
+        12
+      ]
+    }
+  }
+}

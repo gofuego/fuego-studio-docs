@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>The publish &amp; reload loop — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/" class="current">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>The publish &amp; reload loop</h1>
+    <p>When you commit an edit and the page updates on its own, a specific chain of events
+runs. Understanding it explains both what you see and what you <em>don't</em>.</p>
+<h2>The chain</h2>
+<ol>
+<li><strong>Commit</strong> — studio writes your file back to GitHub on the resolved edit branch,
+authored by you, conditional on the version you loaded.</li>
+<li><strong>CI rebuilds</strong> — your normal deploy workflow runs and pushes the new build to the
+serve branch.</li>
+<li><strong>Webhook</strong> — GitHub tells studio about the push. Studio re-fetches the new build
+(by the push's exact commit, so it never reads a stale cache) and swaps it in.</li>
+<li><strong>Reload</strong> — studio's re-sync advances a generation counter; your open page is
+watching it and reloads when it ticks, preserving your scroll position.</li>
+</ol>
+<p>The toast you see — <em>Committing → deploying → Published</em> — is narrating this chain.</p>
+<h2>Why &quot;by the exact commit&quot; matters</h2>
+<p>GitHub's branch archives are CDN-cached and can briefly lag a fresh push. Early on,
+studio re-fetched by branch name and sometimes pulled the <em>old</em> bytes — so a page
+would say &quot;published&quot; but show stale content even after a hard refresh. Studio now
+fetches by the push's immutable commit SHA, which is always current. It's an
+invisible detail that makes the whole loop trustworthy.</p>
+<h2>Why there's no live preview</h2>
+<p>You might expect a side-by-side preview. There isn't one, on purpose. Editing in
+studio is aimed at <strong>content</strong> — fixing what a page <em>says</em> — for developers who
+already work in the repo. &quot;See it&quot; means the real build ran and the real page
+updated, which is the same thing your readers will see. Skipping a preview keeps the
+editor a thin, honest layer over your actual publish pipeline rather than a
+second renderer that could disagree with it.</p>
+<h2>On a protected repo, the loop pauses</h2>
+<p>If edits go to a non-deploying branch (the <a href="../how-to/edit-in-a-protected-repo/">pull-request flow</a>),
+there's no instant reload — feedback comes after the PR merges and deploys. That's
+the deliberate cost of review.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

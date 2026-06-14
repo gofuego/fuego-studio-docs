@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>Why gateway-first — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/" class="current">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Why gateway-first</h1>
+    <p>fuego-studio could have been a build service, or a proxy in front of GitHub Pages.
+It is neither. It is a <strong>gateway</strong>: it serves a site's already-built output behind a
+permission check, and never builds the site itself.</p>
+<h2>The choice</h2>
+<p>Your repo's normal CI builds the site and pushes the static output to a serve
+branch. Studio fetches that branch and serves it, gated by GitHub permission. The
+build stays where it belongs — in your workflow — and studio is just the
+authenticating front door.</p>
+<h2>Why it's the origin, not a proxy</h2>
+<p>Because studio serves the actual bytes (rather than redirecting you to another host),
+the site and the gate share <strong>one origin</strong>. That single fact removes a stack of
+problems:</p>
+<ul>
+<li><strong>Auth is simple.</strong> No cross-origin cookies, no CORS negotiation, no bouncing
+between a login host and a content host. A request either clears the permission
+check or it doesn't.</li>
+<li><strong>The editor ships with the page.</strong> Studio injects it into the same HTML it's
+already serving — there's no separate editor app to host, authenticate, or keep in
+sync.</li>
+<li><strong>Reload is possible.</strong> Studio holds the served bytes in memory, so when a new
+build lands it can tell your open page to update.</li>
+</ul>
+<h2>What you give up</h2>
+<p>Studio doesn't build, preview, or transform your site. If your build is broken, your
+site is broken — studio just hosts whatever you published. That's the trade: less
+magic, far less surface area, and an auth-and-edit layer that's easy to reason about.</p>
+<p>This is the same separation-of-concerns the Fuego engine follows: the engine builds
+and emits a manifest of facts; studio reads those facts and adds hosting, gating, and
+editing on top.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

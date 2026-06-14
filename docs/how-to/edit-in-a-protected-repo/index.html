@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>Edit a site in a protected repo — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/" class="current">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Edit a site in a protected repo</h1>
+    <p>If your docs live in a repo whose default branch is <strong>protected</strong> — like a code repo
+where <code>main</code> requires review — studio won't (and can't) commit straight to <code>main</code>.
+Instead it routes edits through a <strong>pull request</strong>. You don't configure anything;
+this is the smart default.</p>
+<h2>What happens when you commit</h2>
+<ol>
+<li>Studio ensures an edit branch (<code>fuego-studio-edits</code> by default) exists, creating
+it from the default branch.</li>
+<li>It merges the default branch into the edit branch so you start from current
+content. If that merge <strong>conflicts</strong>, studio tells you rather than guessing.</li>
+<li>It commits your change to the edit branch (authored by you).</li>
+</ol>
+<h2>What you see</h2>
+<p>Instead of &quot;Published&quot;, the editor shows:</p>
+<blockquote>
+<p><strong>Committed to <code>fuego-studio-edits</code> — Open a pull request →</strong></p>
+</blockquote>
+<p>The link is a <strong>prefilled compare page</strong> (<code>base...edit</code>, expanded, with a title
+filled in). A pending-edits prompt stays visible, counting how many commits are
+waiting, until the branch is merged.</p>
+<h2>Finishing up</h2>
+<p>Open the PR, get it reviewed, and merge it like any other. Your normal deploy runs
+on merge and the site updates then — there's no instant reload on this path, by
+design (the edit branch doesn't deploy).</p>
+<h2>Want instant publish on a protected repo?</h2>
+<p>Point editing at a branch your workflow <em>does</em> deploy, and tell studio so, via
+<a href="../control-editing/"><code>.fuego-studio.yaml</code></a>:</p>
+<pre><code class="language-yaml">edit_branch: docs-live
+edit_branch_deploys: true
+</code></pre>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

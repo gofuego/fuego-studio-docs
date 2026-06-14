@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Fuego Studio</title>
+    <link>/gofuego/fuego-studio-docs</link>
+    <description>Documentation for fuego-studio — authenticating host and in-place editor for Fuego sites.</description>
+    <item>
+      <title>Why gateway-first</title>
+      <link>/gofuego/fuego-studio-docs/docs/explanation/gateway-first/</link>
+    </item>
+    <item>
+      <title>How permission gating works</title>
+      <link>/gofuego/fuego-studio-docs/docs/explanation/permission-gating/</link>
+    </item>
+    <item>
+      <title>The publish & reload loop</title>
+      <link>/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/</link>
+    </item>
+    <item>
+      <title>Configure the deploy workflow</title>
+      <link>/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/</link>
+    </item>
+    <item>
+      <title>Control who can edit</title>
+      <link>/gofuego/fuego-studio-docs/docs/how-to/control-editing/</link>
+    </item>
+    <item>
+      <title>Edit a site in a protected repo</title>
+      <link>/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/</link>
+    </item>
+    <item>
+      <title>Install the GitHub App</title>
+      <link>/gofuego/fuego-studio-docs/docs/how-to/install-the-app/</link>
+    </item>
+    <item>
+      <title>Serve on Pages and Studio at once</title>
+      <link>/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/</link>
+    </item>
+    <item>
+      <title>Server configuration</title>
+      <link>/gofuego/fuego-studio-docs/docs/reference/configuration/</link>
+    </item>
+    <item>
+      <title>.fuego-studio.yaml</title>
+      <link>/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/</link>
+    </item>
+    <item>
+      <title>Routes</title>
+      <link>/gofuego/fuego-studio-docs/docs/reference/routes/</link>
+    </item>
+    <item>
+      <title>Edit your first page</title>
+      <link>/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/</link>
+    </item>
+    <item>
+      <title>Host your first site</title>
+      <link>/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/</link>
+    </item>
+    <item>
+      <title>Host private sites. Edit docs in place.</title>
+      <link>/gofuego/fuego-studio-docs/index/</link>
+    </item>
+  </channel>
+</rss>

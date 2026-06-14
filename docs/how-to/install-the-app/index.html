@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>Install the GitHub App — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/" class="current">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Install the GitHub App</h1>
+    <h2>Install on a repo</h2>
+<ol>
+<li>Go to the <strong>fuego-studio</strong> GitHub App's page and choose <strong>Install</strong> (or
+<strong>Configure</strong> for an existing installation).</li>
+<li>Select the account/org and either <strong>All repositories</strong> or specific repos. With
+&quot;All repositories&quot;, new repos are covered automatically.</li>
+<li>Installing grants studio the access it needs to fetch the built site (and, for
+editing, to read branch protection and commit on the user's behalf).</li>
+</ol>
+<h2>Confirm it worked</h2>
+<p>A repo shows up on the dashboard once it has a <strong>serve branch</strong>
+(<code>gh-pages</code>/<code>fuego-pages</code>) — that's how studio recognises a hosted site. So after
+installing, make sure your <a href="../configure-the-deploy-workflow/">deploy workflow</a> has
+run at least once.</p>
+<h2>Operator smoke tests</h2>
+<p>If you run the instance, two endpoints confirm credentials and installations:</p>
+<pre><code class="language-bash">curl &lt;host&gt;/healthz                 # -&gt; ok
+curl &lt;host&gt;/debug/installations     # lists installations + mints a token
+</code></pre>
+<p>A successful <code>/debug/installations</code> means the App ID, private key, and webhook
+wiring are correct.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

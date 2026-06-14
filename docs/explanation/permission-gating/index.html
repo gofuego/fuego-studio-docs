@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>How permission gating works — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/" class="current">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>How permission gating works</h1>
+    <p>The most important thing to understand about studio's security model: it <strong>has no
+access model of its own</strong>. Everything maps to your GitHub repo permissions.</p>
+<h2>Reading a site</h2>
+<p>When you request a site:</p>
+<ul>
+<li><strong>Public repo</strong> → served to anyone. (The site is public on GitHub Pages anyway;
+gating it would be theatre.)</li>
+<li><strong>Private repo</strong> → you must have <strong>repo read</strong>. Not signed in? Studio sends you
+through GitHub OAuth. Signed in but no access? Denied.</li>
+</ul>
+<p>This is what makes &quot;GitHub Pages for private sites&quot; real: a private docs site is
+visible to exactly the people who can already see the repo, enforced by GitHub, not
+by a password studio invented.</p>
+<h2>The dashboard</h2>
+<p>The dashboard shows the sites <em>you</em> can access — built by walking the app's
+installations and keeping repos that both host a site and that your token can see.
+You never see a site you couldn't already reach on GitHub.</p>
+<h2>Editing</h2>
+<p>An edit button appears only when <strong>both</strong> are true:</p>
+<blockquote>
+<p>the repo's policy allows editing <strong>and</strong> you have GitHub <strong>write</strong> access.</p>
+</blockquote>
+<p>So a read-only viewer of a private site sees the content but no editor; a writer sees
+the editor. Commits are made with <strong>your</strong> token, so they're attributed to you and
+respect your permissions — studio can never commit something you couldn't commit
+yourself.</p>
+<h2>Why mirror GitHub instead of adding roles</h2>
+<p>A separate permission system would be a second source of truth to keep in sync, and a
+new thing to get wrong. By deferring entirely to GitHub, studio's access control is
+exactly as correct as GitHub's — and there's nothing extra to administer.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

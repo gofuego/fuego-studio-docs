@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>Control who can edit — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/" class="current">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Control who can edit</h1>
+    <p>Editing is resolved per repo from three layers. Most setups need <strong>zero config</strong> —
+reach for these only to override the default.</p>
+<h2>Turn editing off for the whole instance</h2>
+<p>Set the server flag when running studio:</p>
+<pre><code class="language-bash">EDITING=off go run ./cmd/fuego-studio
+</code></pre>
+<p>The instance becomes a <strong>read-only host</strong> — it still serves and gates sites, but no
+editor appears anywhere.</p>
+<h2>Override per repo with <code>.fuego-studio.yaml</code></h2>
+<p>Add <code>.fuego-studio.yaml</code> to the repo's <strong>default branch</strong>:</p>
+<pre><code class="language-yaml">editing: false              # disable editing for just this repo
+edit_branch: docs-edits     # commit edits to this branch instead of the default
+edit_branch_deploys: true   # this branch deploys → instant publish (else: PR flow)
+</code></pre>
+<p>All three keys are optional:</p>
+<ul>
+<li><strong><code>editing: false</code></strong> — read-only for this repo even though the instance allows editing.</li>
+<li><strong><code>edit_branch</code></strong> — land edits on a dedicated branch instead of the default.</li>
+<li><strong><code>edit_branch_deploys</code></strong> — tell studio whether that branch deploys. Set it <code>true</code>
+if your workflow deploys the edit branch (so studio uses the instant-publish loop);
+otherwise studio uses the <a href="../edit-in-a-protected-repo/">pull-request flow</a>.</li>
+</ul>
+<h2>The default when you configure nothing</h2>
+<ul>
+<li><strong>Unprotected default branch</strong> → edit it directly, instant publish.</li>
+<li><strong>Protected default branch</strong> → commit to an auto <code>fuego-studio-edits</code> branch via a
+pull request. Safe by default, no config required.</li>
+</ul>
+<p>In all cases a user still needs <strong>GitHub write access</strong> to see an editor —
+<code>canEdit</code> is <em>policy-allows-it</em> <strong>and</strong> <em>you-have-write</em>.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

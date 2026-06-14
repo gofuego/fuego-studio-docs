@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/gofuego/fuego-studio-docs/">
+    <title>.fuego-studio.yaml — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/reference/fuego-studio-yaml/" class="current">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/gofuego/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>.fuego-studio.yaml</h1>
+    <p><code>.fuego-studio.yaml</code> is an <strong>optional</strong> file on a repo's <strong>default branch</strong> that
+overrides studio's editing policy for that repo. Omit it and studio uses smart
+defaults.</p>
+<pre><code class="language-yaml">editing: true               # may this repo be edited at all?
+edit_branch: fuego-studio-edits   # which branch edits land on
+edit_branch_deploys: false  # does that branch deploy (instant publish)?
+</code></pre>
+<h2>Keys</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>editing</code></td>
+<td>bool</td>
+<td>smart</td>
+<td><code>false</code> makes the repo read-only in studio.</td>
+</tr>
+<tr>
+<td><code>edit_branch</code></td>
+<td>string</td>
+<td>smart</td>
+<td>Branch edits are committed to.</td>
+</tr>
+<tr>
+<td><code>edit_branch_deploys</code></td>
+<td>bool</td>
+<td>smart</td>
+<td>Whether <code>edit_branch</code> deploys; selects instant-publish vs the pull-request flow.</td>
+</tr>
+</tbody>
+</table>
+<h2>How resolution works</h2>
+<p>The effective policy is decided in three layers, highest priority first:</p>
+<ol>
+<li><strong>Server <code>EDITING=off</code></strong> → read-only, regardless of this file.</li>
+<li><strong>This file</strong> → any key you set wins over the default.</li>
+<li><strong>Smart default</strong> (any key you omit):
+<ul>
+<li><strong><code>editing</code></strong> → on.</li>
+<li><strong><code>edit_branch</code></strong> → the default branch if it's unprotected; otherwise an auto
+<code>fuego-studio-edits</code> branch.</li>
+<li><strong><code>edit_branch_deploys</code></strong> → true when the edit branch <em>is</em> the deploying default
+branch, false otherwise.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>This file is studio's concern — workflow policy, not a build fact. The Fuego
+engine and its <code>site-manifest.json</code> know nothing about it.</p>
+</blockquote>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>
