@@ -1,0 +1,42 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docs-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+
+      # Studio build (served at /gofuego/fuego-studio-docs by fuego-studio).
+      - name: Build for fuego-studio
+        run: go run . build --base-url /gofuego/fuego-studio-docs
+      - name: Publish studio build to fuego-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          publish_branch: fuego-pages
+
+      # Public build (GitHub Pages project site at /fuego-studio-docs).
+      - name: Build for GitHub Pages
+        run: go run . build --base-url /fuego-studio-docs
+      - name: Publish public build to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          publish_branch: gh-pages
