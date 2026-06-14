@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/fuego-studio-docs/">
+    <title>Host your first site — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/tutorials/host-your-first-site/" class="current">Host your first site</a></li>
+            <li><a href="/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Host your first site</h1>
+    <p>By the end of this tutorial you'll have a site hosted behind GitHub-permission
+gating at <code>studio/&lt;owner&gt;/&lt;repo&gt;/</code>.</p>
+<p>You need a repo whose built static site is published to a branch (a Fuego site, or
+any project that deploys to <code>gh-pages</code>/<code>fuego-pages</code>).</p>
+<h2>1. Install the app</h2>
+<p>Install the <strong>fuego-studio</strong> GitHub App on the repo (Settings → GitHub Apps, or the
+app's install page). Installing grants studio read access so it can fetch the built
+site to serve it.</p>
+<h2>2. Build at the studio mount path</h2>
+<p>Studio serves each site under a path prefix, <code>/&lt;owner&gt;/&lt;repo&gt;</code>. Your build must set
+its <code>base_url</code> to that prefix so links and assets resolve. In your deploy workflow:</p>
+<pre><code class="language-bash">go run . build --base-url /&lt;owner&gt;/&lt;repo&gt;
+</code></pre>
+<p>Publish the result to the <strong><code>fuego-pages</code></strong> branch (studio prefers it). See
+<a href="../../how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a> for a
+complete workflow file.</p>
+<h2>3. Visit it</h2>
+<p>Open <code>studio/&lt;owner&gt;/&lt;repo&gt;/</code>:</p>
+<ul>
+<li>If the repo is <strong>public</strong>, it serves to anyone.</li>
+<li>If it's <strong>private</strong>, studio sends you through GitHub sign-in and checks you have
+read access before serving a byte.</li>
+</ul>
+<p>Your accessible sites are also listed on the dashboard at <code>/</code>.</p>
+<p>That's hosting. Next: <a href="../edit-your-first-page/">edit a page in place</a>.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

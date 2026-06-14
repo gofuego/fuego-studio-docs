@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/fuego-studio-docs/">
+    <title>Routes — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/reference/routes/" class="current">Routes</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Routes</h1>
+    <table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /</code></td>
+<td>Dashboard of sites you can access (or a sign-in screen).</td>
+</tr>
+<tr>
+<td><code>GET /&lt;owner&gt;/&lt;repo&gt;/…</code></td>
+<td>Serve the gated site; inject the editor for write-users.</td>
+</tr>
+<tr>
+<td><code>GET /auth/login</code></td>
+<td>Start GitHub OAuth login.</td>
+</tr>
+<tr>
+<td><code>GET /auth/callback</code></td>
+<td>OAuth callback.</td>
+</tr>
+<tr>
+<td><code>GET /auth/logout</code></td>
+<td>Sign out.</td>
+</tr>
+<tr>
+<td><code>GET /_studio/file</code></td>
+<td>Editor API — load a page's source (write-gated).</td>
+</tr>
+<tr>
+<td><code>POST /_studio/file</code></td>
+<td>Editor API — commit a page's source (write-gated).</td>
+</tr>
+<tr>
+<td><code>GET /_studio/status</code></td>
+<td>Publish status — generation counter, or PR <code>ahead</code>/<code>pr_url</code>.</td>
+</tr>
+<tr>
+<td><code>GET /_studio/events</code></td>
+<td>Live-reload SSE stream (write-gated).</td>
+</tr>
+<tr>
+<td><code>POST /webhook</code></td>
+<td>GitHub push deliveries → re-sync + reload broadcast.</td>
+</tr>
+<tr>
+<td><code>GET /healthz</code></td>
+<td>Liveness check (<code>ok</code>).</td>
+</tr>
+<tr>
+<td><code>GET /debug/installations</code></td>
+<td>List app installations + mint a token (operator check).</td>
+</tr>
+</tbody>
+</table>
+<h2>Notes</h2>
+<ul>
+<li>Site and asset routes under <code>/&lt;owner&gt;/&lt;repo&gt;/</code> are <strong>permission-gated</strong>: public
+repos serve to anyone; private repos require repo read.</li>
+<li><code>/_studio/*</code> editor and event routes are <strong>write-gated</strong> — only users with repo
+write reach them.</li>
+<li><code>/webhook</code> verifies an HMAC-SHA256 signature; unsigned or mismatched deliveries
+are rejected.</li>
+</ul>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

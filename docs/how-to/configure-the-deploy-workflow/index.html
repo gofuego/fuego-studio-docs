@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/fuego-studio-docs/">
+    <title>Configure the deploy workflow — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/" class="current">Configure the deploy workflow</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Configure the deploy workflow</h1>
+    <p>Studio serves what your CI publishes to a serve branch. Here's a complete workflow
+for a Fuego site.</p>
+<h2>The workflow</h2>
+<pre><code class="language-yaml">name: Deploy
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: &quot;1.25&quot;
+      - name: Build for fuego-studio
+        run: go run . build --base-url /&lt;owner&gt;/&lt;repo&gt;
+      - name: Publish to fuego-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          publish_branch: fuego-pages
+</code></pre>
+<h2>What matters</h2>
+<ul>
+<li><strong><code>--base-url /&lt;owner&gt;/&lt;repo&gt;</code></strong> — studio mounts each site under its
+<code>owner/repo</code> path, so the build must use that prefix or links and assets break.</li>
+<li><strong><code>fuego-pages</code></strong> — studio prefers this branch. Publishing here keeps your studio
+build separate from any public GitHub Pages build (see
+<a href="../set-up-dual-hosting/">Set up dual hosting</a>).</li>
+<li><strong>No studio secrets needed</strong> — the workflow only uses the built-in
+<code>secrets.GITHUB_TOKEN</code>. Studio's own credentials live on the studio host, not in
+your repo.</li>
+</ul>
+<h2>After it runs</h2>
+<p>The push fires a webhook to studio, which re-syncs and serves the new build. If you
+had a page open, it reloads itself.</p>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

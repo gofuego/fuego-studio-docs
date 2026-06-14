@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/fuego-studio-docs/">
+    <title>Serve on Pages and Studio at once — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/set-up-dual-hosting/" class="current">Serve on Pages and Studio at once</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/configuration/">Server configuration</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Serve on Pages and Studio at once</h1>
+    <p>A site can be <strong>both</strong> a public GitHub Pages site <em>and</em> an in-place-editable studio
+site. The catch: the two hosts mount at different paths, so they need different
+<code>base_url</code> builds.</p>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>Mount path</th>
+<th><code>base_url</code></th>
+<th>Branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Pages (project site)</td>
+<td><code>/&lt;repo&gt;</code></td>
+<td><code>/&lt;repo&gt;</code></td>
+<td><code>gh-pages</code></td>
+</tr>
+<tr>
+<td>fuego-studio</td>
+<td><code>/&lt;owner&gt;/&lt;repo&gt;</code></td>
+<td><code>/&lt;owner&gt;/&lt;repo&gt;</code></td>
+<td><code>fuego-pages</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Build twice</h2>
+<pre><code class="language-yaml">      - name: Build for fuego-studio
+        run: go run . build --base-url /&lt;owner&gt;/&lt;repo&gt;
+      - name: Publish studio build to fuego-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          publish_branch: fuego-pages
+
+      - name: Build for GitHub Pages
+        run: go run . build --base-url /&lt;repo&gt;
+      - name: Publish public build to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
+          publish_branch: gh-pages
+</code></pre>
+<h2>Why studio prefers <code>fuego-pages</code></h2>
+<p>When resolving a site's source, studio checks <code>fuego-pages</code> <strong>first</strong>, then the
+Pages source, then <code>gh-pages</code>. So the studio-base build on <code>fuego-pages</code> is what
+studio serves, while GitHub Pages independently serves the <code>/&lt;repo&gt;</code>-base build on
+<code>gh-pages</code>. One source repo, two correct hosts.</p>
+<blockquote>
+<p>Private repos can't use public GitHub Pages — for those, build once to
+<code>fuego-pages</code> and serve only through studio.</p>
+</blockquote>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>

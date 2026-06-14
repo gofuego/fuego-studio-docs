@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/fuego-studio-docs/">
+    <title>Server configuration — Fuego Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Fuego Studio" href="rss.xml">
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index/" class="logo">Fuego Studio</a>
+        <ul>
+            <li><a href="docs/tutorials/host-your-first-site/">Get Started</a></li>
+            <li><a href="https://github.com/gofuego/fuego-studio">GitHub</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="layout">
+    
+<nav class="sidebar" aria-label="Documentation">
+    
+    <div class="nav-group">
+        <p class="nav-heading">Tutorials</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/tutorials/host-your-first-site/">Host your first site</a></li>
+            <li><a href="/fuego-studio-docs/docs/tutorials/edit-your-first-page/">Edit your first page</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">How-to Guides</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/how-to/install-the-app/">Install the GitHub App</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/set-up-dual-hosting/">Serve on Pages and Studio at once</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/control-editing/">Control who can edit</a></li>
+            <li><a href="/fuego-studio-docs/docs/how-to/edit-in-a-protected-repo/">Edit a site in a protected repo</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Reference</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/reference/routes/">Routes</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/configuration/" class="current">Server configuration</a></li>
+            <li><a href="/fuego-studio-docs/docs/reference/fuego-studio-yaml/">.fuego-studio.yaml</a></li>
+        </ul>
+    </div>
+    
+    <div class="nav-group">
+        <p class="nav-heading">Explanation</p>
+        <ul>
+            <li><a href="/fuego-studio-docs/docs/explanation/gateway-first/">Why gateway-first</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/permission-gating/">How permission gating works</a></li>
+            <li><a href="/fuego-studio-docs/docs/explanation/publish-and-reload/">The publish &amp; reload loop</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main>
+    
+<article class="doc">
+    <h1>Server configuration</h1>
+    <p>A studio instance is configured entirely through the environment (copy
+<code>.env.example</code> to <code>.env</code>, which is gitignored — never commit it).</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Required</th>
+<th>Where to get it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>APP_ID</code></td>
+<td>yes</td>
+<td>GitHub App settings → &quot;App ID&quot;</td>
+</tr>
+<tr>
+<td><code>CLIENT_ID</code></td>
+<td>yes</td>
+<td>App settings → &quot;Client ID&quot;</td>
+</tr>
+<tr>
+<td><code>CLIENT_SECRET</code></td>
+<td>yes</td>
+<td>App settings → &quot;Generate a client secret&quot;</td>
+</tr>
+<tr>
+<td><code>WEBHOOK_SECRET</code></td>
+<td>yes</td>
+<td>the value you set as the App's webhook secret</td>
+</tr>
+<tr>
+<td><code>PRIVATE_KEY_PATH</code></td>
+<td>yes</td>
+<td>path to the App's downloaded <code>.pem</code> (keep it gitignored)</td>
+</tr>
+<tr>
+<td><code>PORT</code></td>
+<td>no</td>
+<td>listen port; default <code>3000</code></td>
+</tr>
+<tr>
+<td><code>EDITING</code></td>
+<td>no</td>
+<td><code>off</code> makes the whole instance read-only; default on</td>
+</tr>
+</tbody>
+</table>
+<h2>Notes</h2>
+<ul>
+<li>These are <strong>runtime secrets of the studio host</strong>, not GitHub Actions secrets.
+Repos that you host need nothing studio-related in their own CI — only the
+built-in <code>GITHUB_TOKEN</code>.</li>
+<li>The private key signs the App JWT; the client secret backs user OAuth; the webhook
+secret verifies push deliveries. Keep all three out of version control.</li>
+<li>Sessions persist to a gitignored <code>.sessions.json</code> (mode <code>0600</code>) so signed-in users
+survive a restart.</li>
+</ul>
+<h2>Local webhooks</h2>
+<p>To receive webhooks on a local instance, forward them with <a href="https://smee.io">smee</a>:</p>
+<pre><code class="language-bash">smee -u https://smee.io/&lt;channel&gt; --target http://127.0.0.1:3000/webhook
+</code></pre>
+
+</article>
+
+    </main>
+</div>
+<footer>
+    <p>Built with Fuego — the format-agnostic static site engine.</p>
+</footer>
+</body>
+</html>
