@@ -43,7 +43,7 @@ jobs:
   `owner/repo` path, so the build must use that prefix or links and assets break.
 - **`fuego-pages`** — studio prefers this branch. Publishing here keeps your studio
   build separate from any public GitHub Pages build (see
-  [Set up dual hosting](../set-up-dual-hosting/)).
+  [Set up dual hosting](/docs/how-to/set-up-dual-hosting/)).
 - **No studio secrets needed** — the workflow only uses the built-in
   `secrets.GITHUB_TOKEN`. Studio's own credentials live on the studio host, not in
   your repo.

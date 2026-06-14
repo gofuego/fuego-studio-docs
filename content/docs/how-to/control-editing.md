@@ -37,7 +37,7 @@ All three keys are optional:
 - **`edit_branch`** — land edits on a dedicated branch instead of the default.
 - **`edit_branch_deploys`** — tell studio whether that branch deploys. Set it `true`
   if your workflow deploys the edit branch (so studio uses the instant-publish loop);
-  otherwise studio uses the [pull-request flow](../edit-in-a-protected-repo/).
+  otherwise studio uses the [pull-request flow](/docs/how-to/edit-in-a-protected-repo/).
 
 ## The default when you configure nothing
 

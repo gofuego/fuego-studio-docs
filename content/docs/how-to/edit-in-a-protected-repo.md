@@ -39,7 +39,7 @@ design (the edit branch doesn't deploy).
 ## Want instant publish on a protected repo?
 
 Point editing at a branch your workflow *does* deploy, and tell studio so, via
-[`.fuego-studio.yaml`](../control-editing/):
+[`.fuego-studio.yaml`](/docs/how-to/control-editing/):
 
 ```yaml
 edit_branch: docs-live
