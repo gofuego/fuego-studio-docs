@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/fuego-studio-docs/</loc></url>
   <url><loc>/fuego-studio-docs/docs/explanation/gateway-first/</loc></url>
   <url><loc>/fuego-studio-docs/docs/explanation/permission-gating/</loc></url>
   <url><loc>/fuego-studio-docs/docs/explanation/publish-and-reload/</loc></url>
@@ -13,7 +14,6 @@
   <url><loc>/fuego-studio-docs/docs/reference/routes/</loc></url>
   <url><loc>/fuego-studio-docs/docs/tutorials/edit-your-first-page/</loc></url>
   <url><loc>/fuego-studio-docs/docs/tutorials/host-your-first-site/</loc></url>
-  <url><loc>/fuego-studio-docs/index/</loc></url>
   <url><loc>/fuego-studio-docs/tags/</loc></url>
   <url><loc>/fuego-studio-docs/tags/architecture/</loc></url>
   <url><loc>/fuego-studio-docs/tags/auth/</loc></url>

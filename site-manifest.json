@@ -2,6 +2,29 @@
   "content_root": "content",
   "pages": [
     {
+      "url": "/",
+      "type": "md",
+      "layout": "home",
+      "source_path": "index.md",
+      "output_path": "index.html",
+      "title": "Host private sites. Edit docs in place.",
+      "envelope": {
+        "cta": [
+          {
+            "label": "Host your first site",
+            "url": "/docs/tutorials/host-your-first-site/"
+          },
+          {
+            "ghost": true,
+            "label": "How editing works",
+            "url": "/docs/explanation/publish-and-reload/"
+          }
+        ],
+        "layout": "home",
+        "title": "Host private sites. Edit docs in place."
+      }
+    },
+    {
       "url": "/docs/explanation/gateway-first/",
       "type": "md",
       "layout": "doc",
@@ -271,29 +294,6 @@
           "getting-started"
         ],
         "title": "Host your first site"
-      }
-    },
-    {
-      "url": "/index/",
-      "type": "md",
-      "layout": "home",
-      "source_path": "index.md",
-      "output_path": "index/index.html",
-      "title": "Host private sites. Edit docs in place.",
-      "envelope": {
-        "cta": [
-          {
-            "label": "Host your first site",
-            "url": "/docs/tutorials/host-your-first-site/"
-          },
-          {
-            "ghost": true,
-            "label": "How editing works",
-            "url": "/docs/explanation/publish-and-reload/"
-          }
-        ],
-        "layout": "home",
-        "title": "Host private sites. Edit docs in place."
       }
     },
     {
@@ -597,80 +597,80 @@
     "tags": {
       "terms": {
         "architecture": [
-          0
-        ],
-        "auth": [
           1
         ],
-        "ci": [
-          3
-        ],
-        "configuration": [
-          8
-        ],
-        "deployment": [
-          3,
-          7
-        ],
-        "editing": [
-          2,
-          4,
-          5,
-          9,
-          11
-        ],
-        "explanation": [
-          0,
-          1,
+        "auth": [
           2
         ],
-        "getting-started": [
+        "ci": [
+          4
+        ],
+        "configuration": [
+          9
+        ],
+        "deployment": [
+          4,
+          8
+        ],
+        "editing": [
+          3,
+          5,
+          6,
+          10,
           12
+        ],
+        "explanation": [
+          1,
+          2,
+          3
+        ],
+        "getting-started": [
+          13
         ],
         "git": [
-          5
-        ],
-        "github": [
           6
         ],
+        "github": [
+          7
+        ],
         "hosting": [
-          7,
-          12
+          8,
+          13
         ],
         "how-to": [
-          3,
           4,
           5,
           6,
-          7
-        ],
-        "ops": [
+          7,
           8
         ],
-        "policy": [
-          4,
+        "ops": [
           9
         ],
-        "reference": [
-          8,
-          9,
+        "policy": [
+          5,
           10
+        ],
+        "reference": [
+          9,
+          10,
+          11
         ],
         "reload": [
-          2
+          3
         ],
         "routes": [
-          10
+          11
         ],
         "security": [
-          1
+          2
         ],
         "setup": [
-          6
+          7
         ],
         "tutorial": [
-          11,
-          12
+          12,
+          13
         ]
       }
     }
@@ -678,7 +678,7 @@
   "collections": {
     "tutorials": {
       "pages": [
-        12
+        13
       ]
     }
   }
