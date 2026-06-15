@@ -5,6 +5,10 @@
     <link>/gofuego/fuego-studio-docs</link>
     <description>Documentation for fuego-studio — authenticating host and in-place editor for Fuego sites.</description>
     <item>
+      <title>Host private sites. Edit docs in place.</title>
+      <link>/gofuego/fuego-studio-docs/</link>
+    </item>
+    <item>
       <title>Why gateway-first</title>
       <link>/gofuego/fuego-studio-docs/docs/explanation/gateway-first/</link>
     </item>
@@ -55,10 +59,6 @@
     <item>
       <title>Host your first site</title>
       <link>/gofuego/fuego-studio-docs/docs/tutorials/host-your-first-site/</link>
-    </item>
-    <item>
-      <title>Host private sites. Edit docs in place.</title>
-      <link>/gofuego/fuego-studio-docs/index/</link>
     </item>
   </channel>
 </rss>
