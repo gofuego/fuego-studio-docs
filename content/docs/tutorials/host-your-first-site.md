@@ -30,7 +30,7 @@ go run . build --base-url /<owner>/<repo>
 ```
 
 Publish the result to the **`fuego-pages`** branch (studio prefers it). See
-[Configure the deploy workflow](/docs/how-to/configure-the-deploy-workflow/) for a
+[Configure the deploy workflow](docs/how-to/configure-the-deploy-workflow/) for a
 complete workflow file.
 
 ## 3. Visit it
@@ -43,4 +43,4 @@ Open `studio/<owner>/<repo>/`:
 
 Your accessible sites are also listed on the dashboard at `/`.
 
-That's hosting. Next: [edit a page in place](/docs/tutorials/edit-your-first-page/).
+That's hosting. Next: [edit a page in place](docs/tutorials/edit-your-first-page/).

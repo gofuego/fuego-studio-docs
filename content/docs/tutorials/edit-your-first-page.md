@@ -8,7 +8,7 @@ order: 2
 tags: [tutorial, editing]
 ---
 
-This picks up from [hosting your first site](/docs/tutorials/host-your-first-site/). You'll edit
+This picks up from [hosting your first site](docs/tutorials/host-your-first-site/). You'll edit
 a page's source and see it go live.
 
 You need **write access** to the repo, and the site must be a **Fuego** site (studio
@@ -18,7 +18,7 @@ reads its `site-manifest.json` to find each page's source).
 
 Open any content page on your hosted site. If you have write access, an **Edit
 source** button appears. (No button? You may lack write access, or editing may be
-turned off — see [Control editing](/docs/how-to/control-editing/).)
+turned off — see [Control editing](docs/how-to/control-editing/).)
 
 ## 2. Edit the source
 
@@ -41,7 +41,7 @@ studio re-syncs. A toast walks you through *Committing → deploying → Publish
 the page **reloads itself** with your change — scroll preserved.
 
 If the site lives in a protected repo, your commit becomes a **pull request** instead
-— see [Edit in a protected repo](/docs/how-to/edit-in-a-protected-repo/).
+— see [Edit in a protected repo](docs/how-to/edit-in-a-protected-repo/).
 
 That's the whole loop. To understand what just happened, read
-[The publish & reload loop](/docs/explanation/publish-and-reload/).
+[The publish & reload loop](docs/explanation/publish-and-reload/).

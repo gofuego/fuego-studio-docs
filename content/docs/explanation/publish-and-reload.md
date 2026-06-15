@@ -42,6 +42,6 @@ second renderer that could disagree with it.
 
 ## On a protected repo, the loop pauses
 
-If edits go to a non-deploying branch (the [pull-request flow](/docs/how-to/edit-in-a-protected-repo/)),
+If edits go to a non-deploying branch (the [pull-request flow](docs/how-to/edit-in-a-protected-repo/)),
 there's no instant reload — feedback comes after the PR merges and deploys. That's
 the deliberate cost of review.

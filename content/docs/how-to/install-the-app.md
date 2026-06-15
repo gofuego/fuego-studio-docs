@@ -20,7 +20,7 @@ tags: [how-to, github, setup]
 
 A repo shows up on the dashboard once it has a **serve branch**
 (`gh-pages`/`fuego-pages`) — that's how studio recognises a hosted site. So after
-installing, make sure your [deploy workflow](/docs/how-to/configure-the-deploy-workflow/) has
+installing, make sure your [deploy workflow](docs/how-to/configure-the-deploy-workflow/) has
 run at least once.
 
 ## Operator smoke tests
