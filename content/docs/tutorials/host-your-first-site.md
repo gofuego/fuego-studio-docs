@@ -9,7 +9,8 @@ tags: [tutorial, hosting, getting-started]
 ---
 
 By the end of this tutorial you'll have a site hosted behind GitHub-permission
-gating at `studio/<owner>/<repo>/`.
+gating at `https://<studio-host>/<owner>/<repo>/` (studio mounts each site at the
+root of its host — `<owner>/<repo>` is the path, not a `studio/` prefix).
 
 You need a repo whose built static site is published to a branch (a Fuego site, or
 any project that deploys to `gh-pages`/`fuego-pages`).
@@ -35,7 +36,7 @@ complete workflow file.
 
 ## 3. Visit it
 
-Open `studio/<owner>/<repo>/`:
+Open `https://<studio-host>/<owner>/<repo>/`:
 
 - If the repo is **public**, it serves to anyone.
 - If it's **private**, studio sends you through GitHub sign-in and checks you have
