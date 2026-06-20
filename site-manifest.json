@@ -300,7 +300,6 @@
       "url": "/tags/",
       "type": "taxonomy-index",
       "layout": "tag-index",
-      "source_path": "_virtual/taxonomy/tags/_index",
       "output_path": "tags/index.html",
       "title": "All Tags",
       "envelope": {
@@ -312,7 +311,6 @@
       "url": "/tags/architecture/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/architecture",
       "output_path": "tags/architecture/index.html",
       "title": "Tags: architecture",
       "envelope": {
@@ -325,7 +323,6 @@
       "url": "/tags/auth/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/auth",
       "output_path": "tags/auth/index.html",
       "title": "Tags: auth",
       "envelope": {
@@ -338,7 +335,6 @@
       "url": "/tags/ci/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/ci",
       "output_path": "tags/ci/index.html",
       "title": "Tags: ci",
       "envelope": {
@@ -351,7 +347,6 @@
       "url": "/tags/configuration/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/configuration",
       "output_path": "tags/configuration/index.html",
       "title": "Tags: configuration",
       "envelope": {
@@ -364,7 +359,6 @@
       "url": "/tags/deployment/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/deployment",
       "output_path": "tags/deployment/index.html",
       "title": "Tags: deployment",
       "envelope": {
@@ -377,7 +371,6 @@
       "url": "/tags/editing/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/editing",
       "output_path": "tags/editing/index.html",
       "title": "Tags: editing",
       "envelope": {
@@ -390,7 +383,6 @@
       "url": "/tags/explanation/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/explanation",
       "output_path": "tags/explanation/index.html",
       "title": "Tags: explanation",
       "envelope": {
@@ -403,7 +395,6 @@
       "url": "/tags/getting-started/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/getting-started",
       "output_path": "tags/getting-started/index.html",
       "title": "Tags: getting-started",
       "envelope": {
@@ -416,7 +407,6 @@
       "url": "/tags/git/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/git",
       "output_path": "tags/git/index.html",
       "title": "Tags: git",
       "envelope": {
@@ -429,7 +419,6 @@
       "url": "/tags/github/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/github",
       "output_path": "tags/github/index.html",
       "title": "Tags: github",
       "envelope": {
@@ -442,7 +431,6 @@
       "url": "/tags/hosting/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/hosting",
       "output_path": "tags/hosting/index.html",
       "title": "Tags: hosting",
       "envelope": {
@@ -455,7 +443,6 @@
       "url": "/tags/how-to/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/how-to",
       "output_path": "tags/how-to/index.html",
       "title": "Tags: how-to",
       "envelope": {
@@ -468,7 +455,6 @@
       "url": "/tags/ops/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/ops",
       "output_path": "tags/ops/index.html",
       "title": "Tags: ops",
       "envelope": {
@@ -481,7 +467,6 @@
       "url": "/tags/policy/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/policy",
       "output_path": "tags/policy/index.html",
       "title": "Tags: policy",
       "envelope": {
@@ -494,7 +479,6 @@
       "url": "/tags/reference/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/reference",
       "output_path": "tags/reference/index.html",
       "title": "Tags: reference",
       "envelope": {
@@ -507,7 +491,6 @@
       "url": "/tags/reload/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/reload",
       "output_path": "tags/reload/index.html",
       "title": "Tags: reload",
       "envelope": {
@@ -520,7 +503,6 @@
       "url": "/tags/routes/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/routes",
       "output_path": "tags/routes/index.html",
       "title": "Tags: routes",
       "envelope": {
@@ -533,7 +515,6 @@
       "url": "/tags/security/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/security",
       "output_path": "tags/security/index.html",
       "title": "Tags: security",
       "envelope": {
@@ -546,7 +527,6 @@
       "url": "/tags/setup/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/setup",
       "output_path": "tags/setup/index.html",
       "title": "Tags: setup",
       "envelope": {
@@ -559,7 +539,6 @@
       "url": "/tags/tutorial/",
       "type": "taxonomy-term",
       "layout": "tag",
-      "source_path": "_virtual/taxonomy/tags/tutorial",
       "output_path": "tags/tutorial/index.html",
       "title": "Tags: tutorial",
       "envelope": {
@@ -572,7 +551,6 @@
       "url": "/tutorials/",
       "type": "collection",
       "layout": "listing",
-      "source_path": "_virtual/collection/tutorials",
       "output_path": "tutorials/index.html",
       "title": "Tutorials",
       "envelope": {
@@ -584,7 +562,6 @@
       "url": "/tutorials/page/2/",
       "type": "collection",
       "layout": "listing",
-      "source_path": "_virtual/collection/tutorials/page-2",
       "output_path": "tutorials/page/2/index.html",
       "title": "Tutorials",
       "envelope": {
