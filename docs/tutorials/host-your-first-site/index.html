@@ -66,7 +66,8 @@
 <article class="doc">
     <h1>Host your first site</h1>
     <p>By the end of this tutorial you'll have a site hosted behind GitHub-permission
-gating at <code>studio/&lt;owner&gt;/&lt;repo&gt;/</code>.</p>
+gating at <code>https://&lt;studio-host&gt;/&lt;owner&gt;/&lt;repo&gt;/</code> (studio mounts each site at the
+root of its host — <code>&lt;owner&gt;/&lt;repo&gt;</code> is the path, not a <code>studio/</code> prefix).</p>
 <p>You need a repo whose built static site is published to a branch (a Fuego site, or
 any project that deploys to <code>gh-pages</code>/<code>fuego-pages</code>).</p>
 <h2>1. Install the app</h2>
@@ -82,7 +83,7 @@ its <code>base_url</code> to that prefix so links and assets resolve. In your de
 <a href="docs/how-to/configure-the-deploy-workflow/">Configure the deploy workflow</a> for a
 complete workflow file.</p>
 <h2>3. Visit it</h2>
-<p>Open <code>studio/&lt;owner&gt;/&lt;repo&gt;/</code>:</p>
+<p>Open <code>https://&lt;studio-host&gt;/&lt;owner&gt;/&lt;repo&gt;/</code>:</p>
 <ul>
 <li>If the repo is <strong>public</strong>, it serves to anyone.</li>
 <li>If it's <strong>private</strong>, studio sends you through GitHub sign-in and checks you have
