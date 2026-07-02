@@ -16,7 +16,7 @@ tags: [reference, routes]
 | `GET /auth/logout` | Sign out. |
 | `GET /_studio/file` | Editor API — load a page's source (write-gated). |
 | `POST /_studio/file` | Editor API — commit a page's source (write-gated). |
-| `GET /_studio/status` | Publish status — generation counter, or PR `ahead`/`pr_url`. |
+| `GET /_studio/status` | Publish status — generation counter, or PR `ahead`/`pr_url` (write-gated). |
 | `GET /_studio/events` | Live-reload SSE stream (write-gated). |
 | `POST /webhook` | GitHub push deliveries → re-sync + reload broadcast. |
 | `GET /healthz` | Liveness check (`ok`). |
